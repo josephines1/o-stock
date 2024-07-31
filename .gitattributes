@@ -1,0 +1,6 @@
+vendor/* linguist-vendored
+public/* linguist-vendored
+*.php linguist-detectable
+*.js linguist-detectable=false
+*.css linguist-detectable=false
+assets/js/* linguist-generated
