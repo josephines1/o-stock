@@ -31,7 +31,7 @@ O-Stock hadir dalam dua versi: Free dan Premium. Berikut adalah perbedaan utama 
 - **Pemulihan & Perubahan Akun**: Fitur pemulihan password dan perubahan email untuk kenyamanan pengguna.
 
 > [!NOTE]
-> Versi Premium O-Stock akan dirilis secepatnya besok, 1 Agustus 2024.
+> Versi Premium O-Stock akan segera dirilis.
 
 ## Getting Started
 
@@ -53,31 +53,31 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
    ```
    
 6. Copy file `env` dan beri nama file duplikatnya menjadi `.env`
-   - Pertama, ubah konfigurasi CI_ENVIROMENT menjadi seperti di bawah ini.
+   - Pertama, konfigurasikan nama aplikasi Anda dengan menambahkan baris berikut di setelah baris environment.
      ```
-      CI_ENVIRONMENT = development
-      ```
+     APP_NAME = "nama_aplikasi_anda"
+     ```
      
-   - Lalu, konfigurasikan nama aplikasi Anda dengan menambahkan baris berikut di setelah baris environment.
+   - Lalu, ubah konfigurasi CI_ENVIROMENT menjadi seperti di bawah ini.
      ```
-      APP_NAME = "nama_aplikasi_anda"
-      ```
+     CI_ENVIRONMENT = development
+     ```
 
    - Lalu, konfigurasikan url utama untuk web Anda. Gunakan url `http://localhost:8080/` jika Anda akan menjalankan website ini di server pengembangan lokal.
      ```
-      app.baseURL = 'http://localhost:8080/'
-      ```
+     app.baseURL = 'http://localhost:8080/'
+     ```
      
    - Kemudian, konfirgurasikan database. Sesuaikan dengan database milik Anda.
      ```
-      database.default.hostname = localhost
-      database.default.database = o-stock
-      database.default.username = root
-      database.default.password = 
-      database.default.DBDriver = MySQLi
-      database.default.DBPrefix =
-      database.default.port = 3306
-      ```
+     database.default.hostname = localhost
+     database.default.database = o-stock
+     database.default.username = root
+     database.default.password = 
+     database.default.DBDriver = MySQLi
+     database.default.DBPrefix =
+     database.default.port = 3306
+     ```
      
 7. Buka file `RoleFilter.php` dalam folder `vendor\myth\auth\src\Filters\RoleFilter.php`.
    
@@ -126,10 +126,10 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
     - Konfigurasikan tampilan auth website.
       ```
       public $views = [
-        'login'           => 'App\Views\Auth\login',
+        'login'           => 'App\Views\auth\login',
         'register'        => 'Myth\Auth\Views\register',
         'forgot'          => 'Myth\Auth\Views\forgot',
-        'reset'           => 'App\Views\Auth\reset',
+        'reset'           => 'App\Views\auth\reset',
         'emailForgot'     => 'Myth\Auth\Views\emails\forgot',
         'emailActivation' => 'Myth\Auth\Views\emails\activation',
       ];

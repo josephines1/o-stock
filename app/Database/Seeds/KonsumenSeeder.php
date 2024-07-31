@@ -15,7 +15,7 @@ class KonsumenSeeder extends Seeder
                 'slug'              => 'pt-sinar-jaya',
                 'alamat'            => 'Jl. Merdeka No. 123',
                 'kota'              => 'Jakarta',
-                'no_telp'           => '021-4567890',
+                'no_telp'           => '0214567890',
             ],
             [
                 'id_cabang'         => 3,
@@ -23,7 +23,7 @@ class KonsumenSeeder extends Seeder
                 'slug'              => 'cv-makmur-abadi',
                 'alamat'            => ' Jl. Diponegoro No. 456',
                 'kota'              => 'Bandung',
-                'no_telp'           => '022-5678901',
+                'no_telp'           => '0225678901',
             ],
         ];
 
