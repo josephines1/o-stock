@@ -8,11 +8,11 @@ O-Stock adalah aplikasi pengelolaan stok yang dirancang untuk memudahkan Anda da
 
 ## Requirements
 
-- [CodeIgniter 4](https://codeigniter.com/user_guide/intro/index.html)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [Composer](https://getcomposer.org/)
 - [XAMPP 8.2.4 or later](https://www.apachefriends.org/download.html)
 
-## Features
+## Versions & Features
 
 O-Stock hadir dalam dua versi: Free dan Premium. Berikut adalah perbedaan utama antara kedua versi tersebut:
 
