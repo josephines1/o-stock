@@ -1,4 +1,4 @@
-![O-Stock](https://github.com/josephines1/o-stock-premium/blob/main/public/assets/img/readme/mockup_ostock.png "O-Stock")
+![O-Stock](https://github.com/josephines1/o-stock/blob/main/public/assets/img/readme/mockup_ostock.png "O-Stock")
 
 # O-Stock
 [![made-with-codeigniter4](https://img.shields.io/badge/Made%20with-CodeIgniter4-DD4814.svg)](https://www.codeigniter.com/) [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%3F/Yes%21/blue?icon=github)](https://github.com/josephines1/o-stock)
@@ -245,7 +245,7 @@ Layanan di bawah ini tersedia pada aplikasi O-Stock.
 
 ## Database
 Berikut ini adalah struktur table database untuk aplikasi O-Stock.
-![O-Stock Database](https://github.com/josephines1/o-stock-premium/blob/main/public/assets/img/readme/db_ostock.png "O-Stock")
+![O-Stock Database](https://github.com/josephines1/blob/main/public/assets/img/readme/db_ostock.png "O-Stock")
 
 ## Multilevel Auth
 
