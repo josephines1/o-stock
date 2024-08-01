@@ -36,7 +36,7 @@ O-Stock hadir dalam dua versi: Free dan Premium. Berikut adalah perbedaan utama 
 ## Getting Started
 
 Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan web O-Stock:
-1. Unduh file ZIP kode sumber aplikasi ini atau jalankan perintah berikut di terminal Anda:
+1. Unduh file ZIP source code o-stock atau jalankan perintah berikut di terminal Anda:
    ```console
    git clone https://github.com/josephines1/o-stock.git
    ```
@@ -137,7 +137,7 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
     
 9. Buka XAMPP Control Panel Anda dan start server Apache dan MySQL.
     
-10. Buka l`ocalhost/phpmyadmin` di browser, lalu buat database baru dengan nama `o-stock` atau sesuaikan dengan nama database yang Anda inginkan.
+10. Buka `localhost/phpmyadmin` di browser, lalu buat database baru dengan nama `o-stock` atau sesuaikan dengan nama database yang Anda inginkan.
 
 11. Buka kembali terminal di Visual Studio Code, jalankan perintah migrate dan seed.
     - Migrate
@@ -245,7 +245,7 @@ Layanan di bawah ini tersedia pada aplikasi O-Stock.
 
 ## Database
 Berikut ini adalah struktur table database untuk aplikasi O-Stock.
-![O-Stock Database](https://github.com/josephines1/blob/main/public/assets/img/readme/db_ostock.png "O-Stock")
+![O-Stock Database](https://github.com/josephines1/o-stock/blob/main/public/assets/img/readme/db_ostock.png "O-Stock")
 
 ## Multilevel Auth
 
