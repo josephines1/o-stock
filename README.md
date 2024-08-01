@@ -41,34 +41,34 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
    git clone https://github.com/josephines1/o-stock.git
    ```
 
-2. Ekstrak file Zip O-Stock yang sudah diunduh dan lokasikan folder aplikasi di dalam folder htdocs.
+2. Ekstrak file ZIP dan letakkan folder o-stock di dalam folder htdocs (misalnya D:\xampp\htdocs).
 
-3. Buka folder project tersebut di Code Editor (seperti Visual Studio Code)
+3. Buka folder o-stock di Visual Studio Code.
 
-4. Buka terminal, dan pastikan path pada terminal sudah terarah pada directory project website.
+4. Di Visual Studio Code, buka terminal dengan memilih `Terminal > New Terminal` di menu bagian atas, atau tekan ctrl + `
    
-5. Jalankan perintah berikut ini pada terminal untuk memuat package yang dibutuhkan website.
+5. Jalankan perintah berikut untuk menginstal package yang dibutuhkan:
    ```console
    composer install
    ```
    
-6. Copy file `env` dan beri nama file duplikatnya menjadi `.env`
-   - Pertama, konfigurasikan nama aplikasi Anda dengan menambahkan baris berikut di setelah baris environment.
+6. Setelah instalasi selesai, salin file `env` dan beri nama menjadi `.env`
+   - Atur nama aplikasi:
      ```
-     APP_NAME = "nama_aplikasi_anda"
+     APP_NAME = "Nama Aplikasi"
      ```
      
-   - Lalu, ubah konfigurasi CI_ENVIROMENT menjadi seperti di bawah ini.
+   - Ubah environment menjadi development:
      ```
      CI_ENVIRONMENT = development
      ```
 
-   - Lalu, konfigurasikan url utama untuk web Anda. Gunakan url `http://localhost:8080/` jika Anda akan menjalankan website ini di server pengembangan lokal.
+   - Atur Base URL:
      ```
      app.baseURL = 'http://localhost:8080/'
      ```
      
-   - Kemudian, konfirgurasikan database. Sesuaikan dengan database milik Anda.
+   - Konfirgurasikan database. Sesuaikan dengan database milik Anda:
      ```
      database.default.hostname = localhost
      database.default.database = o-stock
@@ -78,10 +78,10 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
      database.default.DBPrefix =
      database.default.port = 3306
      ```
+
+   - Pastikan tidak ada tanda "#" pada baris yang telah dikonfigurasi.
      
-7. Buka file `RoleFilter.php` dalam folder `vendor\myth\auth\src\Filters\RoleFilter.php`.
-   
-8. Modifikasi function before menjadi seperti berikut ini.
+7. Buka file `vendor\myth\auth\src\Filters\RoleFilter.php`. Modifikasi function `before` (baris 18 - 46) menjadi seperti berikut ini.
    ```
    public function before(RequestInterface $request, $arguments = null)
     {
@@ -117,13 +117,13 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
     }
    ```
      
-11. Buka file `Auth.php` dalam folder `vendor\myth\auth\src\Config\Auth.php`.
-    - Konfigurasikan defaultUserGroup.
+8. Buka file `vendor\myth\auth\src\Config\Auth.php`.
+    - Atur defaultUserGroup (baris 19)
       ```
       public $defaultUserGroup = 'cabang';
       ```
       
-    - Konfigurasikan tampilan auth website.
+    - Atur tampilan auth (baris 76 - 83)
       ```
       public $views = [
         'login'           => 'App\Views\auth\login',
@@ -135,11 +135,11 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
       ];
       ```
     
-15. Aktifkan server Apache dan MySQL di XAMPP Control Panel Anda untuk memulai server pengembangan lokal.
+9. Buka XAMPP Control Panel Anda dan start server Apache dan MySQL.
     
-16. Kunjungi `localhost/phpmyadmin` pada browser Anda, lalu buat database baru dengan nama o-stock atau sesuaikan dengan nama database yang Anda inginkan
+10. Buka l`ocalhost/phpmyadmin` di browser, lalu buat database baru dengan nama `o-stock` atau sesuaikan dengan nama database yang Anda inginkan.
 
-17. Kembali ke terminal, jalankan perintah migrate dan seed
+11. Buka kembali terminal di Visual Studio Code, jalankan perintah migrate dan seed.
     - Migrate
       ```console
       php spark migrate -2024-07-27-125132_create_ostock_tables
@@ -159,12 +159,12 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
       php spark db:seed AuthGroupsUsersSeeder
       ```
 
-18. Selanjutnya, start server dengan menjalankan perintah berikut ini di terminal.
+12. Mulai server dengan menjalankan perintah berikut ini di terminal.
     ```console
     php spark serve
     ```
       
-19. Selesai! Anda dapat mengakses web melalui port 8080 `http://localhost:8080` di server lokal.
+13. Selesai! Akses web melalui `http://localhost:8080`.
 
 ## First Usage
 
@@ -285,5 +285,5 @@ Teknologi dalam aplikasi ini:
 
 ## Credits
 
-> Made by [Josephine. ](https://josephines1.github.io/)
+> Made by [Josephine](https://josephines1.github.io/).
 > Template by [tabler.io](tabler.io)
