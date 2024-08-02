@@ -193,11 +193,27 @@ class KategoriProduk extends BaseController
         }
 
         /*
-        * Membuat Slug dari nama kategori
-        * Karena nama kategori Unique, maka sudah pasti nilai slug akan unique
+        * Membuat Slug dari nama
         */
         $newKategoriName = $this->request->getVar('nama');
-        $slug = url_title($newKategoriName, '-', true);
+        $originalSlug = url_title($newKategoriName, '-', true);
+
+        /*
+        * Karena nama tidak bisa saja mengandung tanda baca yang tidak terdeteksi di url_title, 
+        * maka kita perlu atur agar setiap slug bernilai unique
+        */
+        $slug = $originalSlug;
+        $counter = 2;
+
+        /*
+        * Kita gunakan private method _isSlugExist untuk
+        * menambahkan angka di akhir slug jika slug original
+        * nya sudah terdaftar di database
+        */
+        while ($this->_isSlugExists($slug)) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
 
         /*
         * Simpan data ke tabel kategori_produk
@@ -212,6 +228,22 @@ class KategoriProduk extends BaseController
         */
         session()->setFlashdata('berhasil', 'Data kategori baru berhasil ditambahkan');
         return redirect()->to('/kategori');
+    }
+
+    /*
+    * Membuat slug yang unique
+    */
+    private function _isSlugExists($slug)
+    {
+        /*
+        * Check apakah slug kategori sudah terdaftar di database
+        */
+        $kategori = $this->kategoriModel->where('slug', $slug)->first();
+
+        /*
+        * Kembalikan nilai true jika sudah terdaftar atau false jika belum terdaftar
+        */
+        return $kategori !== null;
     }
 
     /*
@@ -313,7 +345,21 @@ class KategoriProduk extends BaseController
         * Membuat slug baru jika nama kategori berubah
         */
         $newKategoriName = $this->request->getVar('nama');
-        $slug = url_title($newKategoriName, '-', true);
+        $nama_db = $kategori_db['nama'];
+
+        if ($newKategoriName != $nama_db) {
+            $originalSlug = url_title($newKategoriName, '-', true);
+
+            $slug = $originalSlug;
+            $counter = 2;
+
+            while ($this->_isSlugExists($slug)) {
+                $slug = $originalSlug . '-' . $counter;
+                $counter++;
+            }
+        } else {
+            $slug = $slug_db;
+        }
 
         /*
         * Simpan hasil edit ke tabel kategori_produk

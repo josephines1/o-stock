@@ -198,11 +198,27 @@ class Supplier extends BaseController
         }
 
         /*
-        * Membuat Slug dari nama kategori
-        * Karena nama produk Unique, maka sudah pasti nilai slug akan unique
+        * * Membuat Slug dari nama supplier
         */
         $newSupplierName = $this->request->getVar('nama');
-        $slug = url_title($newSupplierName, '-', true);
+        $originalSlug = url_title($newSupplierName, '-', true);
+
+        /*
+        * Karena nama tidak bisa saja mengandung tanda baca yang tidak terdeteksi di url_title, 
+        * maka kita perlu atur agar setiap slug bernilai unique
+        */
+        $slug = $originalSlug;
+        $counter = 2;
+
+        /*
+        * Kita gunakan private method _isSlugExist untuk
+        * menambahkan angka di akhir slug jika slug original
+        * nya sudah terdaftar di database
+        */
+        while ($this->_isSlugExists($slug)) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
 
         /*
         * Simpan data ke tabel supplier
@@ -217,6 +233,22 @@ class Supplier extends BaseController
         */
         session()->setFlashdata('berhasil', 'Data supplier baru berhasil ditambahkan');
         return redirect()->to('/supplier');
+    }
+
+    /*
+    * Membuat slug yang unique
+    */
+    private function _isSlugExists($slug)
+    {
+        /*
+        * Check apakah slug supplier sudah terdaftar di database
+        */
+        $supplier = $this->supplierModel->where('slug', $slug)->first();
+
+        /*
+        * Kembalikan nilai true jika sudah terdaftar atau false jika belum terdaftar
+        */
+        return $supplier !== null;
     }
 
     /*
@@ -315,7 +347,21 @@ class Supplier extends BaseController
         * Karena nama Unique, maka sudah pasti nilai slug akan unique
         */
         $newSupplierName = $this->request->getVar('nama');
-        $slug = url_title($newSupplierName, '-', true);
+        $nama_db = $supplier_db['nama'];
+
+        if ($newSupplierName != $nama_db) {
+            $originalSlug = url_title($newSupplierName, '-', true);
+
+            $slug = $originalSlug;
+            $counter = 2;
+
+            while ($this->_isSlugExists($slug)) {
+                $slug = $originalSlug . '-' . $counter;
+                $counter++;
+            }
+        } else {
+            $slug = $slug_db;
+        }
 
         /*
         * Simpan hasil edit ke tabel supplier

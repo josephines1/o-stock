@@ -85,34 +85,48 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
    ```
    public function before(RequestInterface $request, $arguments = null)
     {
-        // Jika tidak ada pengguna yang login, arahkan mereka ke formulir login.
+        /* 
+        * Jika tidak ada pengguna yang login, arahkan mereka ke formulir login.
+        */
         if (!$this->authenticate->check()) {
             session()->set('redirect_url', current_url());
             return redirect($this->reservedRoutes['login']);
         }
 
-        // Jika tidak ada argumen yang diberikan, lanjutkan ke proses berikutnya.
+        /* 
+        * Jika tidak ada argumen yang diberikan, lanjutkan ke proses berikutnya.
+        */
         if (empty($arguments)) {
             return;
         }
 
-        // Periksa setiap izin yang diminta
+        /* 
+        * Periksa setiap izin yang diminta
+        */
         foreach ($arguments as $group) {
-            // Jika pengguna berada dalam grup yang memiliki izin, lanjutkan.
+            /* 
+            * Jika pengguna berada dalam grup yang memiliki izin, lanjutkan.
+            */
             if ($this->authorize->inGroup($group, $this->authenticate->id())) {
                 return;
             }
         }
 
-        // Jika pengguna tidak memiliki izin dan loginnya bersifat senyap (silent login)
+        /* 
+        * Jika pengguna tidak memiliki izin dan loginnya bersifat senyap (silent login)
+        */
         if ($this->authenticate->silent()) {
-            // Arahkan ke URL yang tersimpan di sesi atau ke URL landing
+            /* 
+            * Arahkan ke URL yang tersimpan di sesi atau ke URL landing
+            */
             $redirectURL = session('redirect_url') ?? route_to($this->landingRoute);
             unset($_SESSION['redirect_url']);
             return redirect()->to($redirectURL)->with('error', lang('Auth.notEnoughPrivilege'));
         }
 
-        // Jika pengguna tidak memiliki izin dan login tidak bersifat senyap, arahkan ke halaman utama
+        /* 
+        * Jika pengguna tidak memiliki izin dan login tidak bersifat senyap, arahkan ke halaman utama
+        */
         return redirect()->to(base_url());
     }
    ```
@@ -133,6 +147,10 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
         'emailForgot'     => 'Myth\Auth\Views\emails\forgot',
         'emailActivation' => 'Myth\Auth\Views\emails\activation',
       ];
+      ```
+    - Atur activeResetter (baris 201)
+      ```
+      public $activeResetter = null;
       ```
     
 9. Buka XAMPP Control Panel Anda dan start server Apache dan MySQL.

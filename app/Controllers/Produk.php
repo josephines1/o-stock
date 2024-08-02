@@ -308,11 +308,27 @@ class Produk extends BaseController
         $harga_jual = str_replace('.', '', $this->request->getVar('harga_jual'));
 
         /*
-        * Membuat Slug dari nama kategori
-        * Karena nama produk Unique, maka sudah pasti nilai slug akan unique
+        * Membuat Slug dari nama produk
         */
         $newProdukName = $this->request->getVar('nama');
-        $slug = url_title($newProdukName, '-', true);
+        $originalSlug = url_title($newProdukName, '-', true);
+
+        /*
+        * Karena nama tidak bisa saja mengandung tanda baca yang tidak terdeteksi di url_title, 
+        * maka kita perlu atur agar setiap slug bernilai unique
+        */
+        $slug = $originalSlug;
+        $counter = 2;
+
+        /*
+        * Kita gunakan private method _isSlugExist untuk
+        * menambahkan angka di akhir slug jika slug original
+        * nya sudah terdaftar di database
+        */
+        while ($this->_isSlugExists($slug)) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
 
         /*
         * Simpan data ke tabel produk
@@ -331,6 +347,22 @@ class Produk extends BaseController
         */
         session()->setFlashdata('berhasil', 'Data produk berhasil ditambahkan');
         return redirect()->to('/produk');
+    }
+
+    /*
+    * Membuat slug yang unique
+    */
+    private function _isSlugExists($slug)
+    {
+        /*
+        * Check apakah slug produk sudah terdaftar di database
+        */
+        $produk = $this->produkModel->where('slug', $slug)->first();
+
+        /*
+        * Kembalikan nilai true jika sudah terdaftar atau false jika belum terdaftar
+        */
+        return $produk !== null;
     }
 
     /*
@@ -471,11 +503,24 @@ class Produk extends BaseController
         $harga_jual = str_replace('.', '', $this->request->getVar('harga_jual'));
 
         /*
-        * Membuat Slug dari nama kategori
-        * Karena nama produk Unique, maka sudah pasti nilai slug akan unique
+        * * Membuat Slug dari nama produk
         */
         $newProdukName = $this->request->getVar('nama');
-        $slug = url_title($newProdukName, '-', true);
+        $nama_db = $produk_db['nama'];
+
+        if ($newProdukName != $nama_db) {
+            $originalSlug = url_title($newProdukName, '-', true);
+
+            $slug = $originalSlug;
+            $counter = 2;
+
+            while ($this->_isSlugExists($slug)) {
+                $slug = $originalSlug . '-' . $counter;
+                $counter++;
+            }
+        } else {
+            $slug = $slug_db;
+        }
 
         /*
         * Simpan hasil edit ke tabel produk

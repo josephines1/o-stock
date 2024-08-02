@@ -215,7 +215,24 @@ class Cabang extends BaseController
         * Karena nama kantor Unique, maka sudah pasti nilai slug akan unique
         */
         $newCabangName = $this->request->getVar('nama');
-        $slug = url_title($newCabangName, '-', true);
+        $originalSlug = url_title($newCabangName, '-', true);
+
+        /*
+        * Karena nama kantor bisa mengandung tanda baca yang tidak terdeteksi di url_title, 
+        * maka kita perlu atur agar setiap slug bernilai unique
+        */
+        $slug = $originalSlug;
+        $counter = 2;
+
+        /*
+        * Kita gunakan private method _isSlugExist untuk
+        * menambahkan angka di akhir slug jika slug original
+        * nya sudah terdaftar di database
+        */
+        while ($this->_isSlugExists($slug)) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
 
         /*
         * Simpan data ke tabel cabang
@@ -233,6 +250,22 @@ class Cabang extends BaseController
         */
         session()->setFlashdata('berhasil', 'Data cabang baru berhasil ditambahkan');
         return redirect()->to('/cabang');
+    }
+
+    /*
+    * Membuat slug yang unique
+    */
+    private function _isSlugExists($slug)
+    {
+        /*
+        * Check apakah slug cabang sudah terdaftar di database
+        */
+        $cabang = $this->cabangModel->where('slug', $slug)->first();
+
+        /*
+        * Kembalikan nilai true jika sudah terdaftar atau false jika belum terdaftar
+        */
+        return $cabang !== null;
     }
 
     /*
@@ -367,7 +400,21 @@ class Cabang extends BaseController
         * Membuat slug baru jika nama cabang berubah
         */
         $newCabangName = $this->request->getVar('nama');
-        $slug = url_title($newCabangName, '-', true);
+        $nama_db = $cabang_db['nama'];
+
+        if ($newCabangName != $nama_db) {
+            $originalSlug = url_title($newCabangName, '-', true);
+
+            $slug = $originalSlug;
+            $counter = 2;
+
+            while ($this->_isSlugExists($slug)) {
+                $slug = $originalSlug . '-' . $counter;
+                $counter++;
+            }
+        } else {
+            $slug = $slug_db;
+        }
 
         /*
         * Simpan hasil edit ke tabel cabang

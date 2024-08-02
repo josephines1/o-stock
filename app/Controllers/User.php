@@ -290,7 +290,8 @@ class User extends BaseController
                     'required' => 'Username harus diisi',
                     'is_unique' => 'Username sudah terdaftar',
                     'min_length' => 'Username harus terdiri dari 5-30 karakter',
-                    'max_length' => 'Username harus terdiri dari 5-30 karakter'
+                    'max_length' => 'Username harus terdiri dari 5-30 karakter',
+                    'alpha_numeric' => 'Username hanya terdiri dari kombinasi "alfabet" dan "angka" tanpa spasi',
                 ],
             ],
             'fullname' => [
@@ -502,7 +503,8 @@ class User extends BaseController
                     'required' => 'Username harus diisi',
                     'is_unique' => 'Username sudah terdaftar',
                     'min_length' => 'Username harus terdiri dari 5-30 karakter',
-                    'max_length' => 'Username harus terdiri dari 5-30 karakter'
+                    'max_length' => 'Username harus terdiri dari 5-30 karakter',
+                    'alpha_numeric' => 'Username hanya terdiri dari kombinasi "alfabet" dan "angka" tanpa spasi',
                 ],
             ],
             'email' => [
