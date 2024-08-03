@@ -31,7 +31,7 @@ O-Stock hadir dalam dua versi: Free dan Premium. Berikut adalah perbedaan utama 
 - **Pemulihan & Perubahan Akun**: Fitur pemulihan password dan perubahan email untuk kenyamanan pengguna.
 
 > [!NOTE]
-> Versi Premium O-Stock akan segera dirilis.
+> Source Code O-Stock Versi Premium tersedia di [Karyakarsa](https://karyakarsa.com/josephines24/o-stock-website-program-stok-barang).
 
 ## Getting Started
 
