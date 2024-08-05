@@ -12,10 +12,10 @@
 
             <!-- Page title actions -->
             <div class="col-md-auto ms-auto mt-4 mt-md-0 d-print-none">
-                <div class="d-flex flex-wrap flex-md-nowrap flex-md-row flex-column-reverse">
+                <div class="d-flex flex-wrap flex-md-nowrap">
                     <input id="keyword" value="<?= $filter_k ?>" type="search" class="form-control d-inline-block w-9 me-0 mb-md-0 mb-2" placeholder="Search kategori">
                     <?php if (in_groups('pusat')) : ?>
-                        <a href="<?= base_url("/kategori/new") ?>" class="btn btn-primary ms-0 ms-md-3 mt-3 mt-md-0 mb-3 mb-md-0">
+                        <a href="<?= base_url("/kategori/new") ?>" class="btn btn-primary ms-auto ms-md-3 mt-3 mt-md-0">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M12 5l0 14"></path>

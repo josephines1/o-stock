@@ -66,7 +66,7 @@
                                         </div>
                                         <div class="col-5">
                                             <label class="form-label">Kuantitas</label>
-                                            <input type="text" name="jumlah[]" value="<?= esc($oldJumlah[$i] ?? '') ?>" class="form-control <?= validation_show_error('jumlah.' . $i) ? 'is-invalid' : '' ?>" placeholder="e.g. 10">
+                                            <input type="text" name="jumlah[]" value="<?= esc($oldJumlah[$i] ?? '') ?>" class="form-control <?= validation_show_error('jumlah.' . $i) ? 'is-invalid' : '' ?>" placeholder="Kuantitas">
                                             <?php if (validation_show_error('jumlah.' . $i)) : ?>
                                                 <div class="invalid-feedback">
                                                     <?= validation_show_error('jumlah.' . $i) ?>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="col-5">
                         <label class="form-label">Kuantitas</label>
-                        <input type="text" name="jumlah[]" class="form-control" placeholder="e.g. 10">
+                        <input type="text" name="jumlah[]" class="form-control" placeholder="Kuantitas">
                     </div>
                     <div class="col-auto">
                         <button type="button" style="height:100%;" class="btn btn-ghost-danger remove_input_field_btn">

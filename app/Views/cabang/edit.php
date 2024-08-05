@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <div class="mb-3 w-100">
                                 <label class="form-label">Nama Cabang</label>
-                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="e.g. Cabang Lorem Ipsum" value="<?= old('nama', $db['nama']) ?>">
+                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="Nama Cabang" value="<?= old('nama', $db['nama']) ?>">
                                 <?php if (validation_show_error('nama')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('nama') ?>
@@ -22,7 +22,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Kode Cabang</label>
-                                <input name="kode" type="text" class="form-control <?= validation_show_error('kode') ? 'is-invalid' : '' ?>" placeholder="e.g. CLI" value="<?= old('kode', $db['kode_cabang']) ?>">
+                                <input name="kode" type="text" class="form-control <?= validation_show_error('kode') ? 'is-invalid' : '' ?>" placeholder="Kode Cabang" value="<?= old('kode', $db['kode_cabang']) ?>">
                                 <?php if (validation_show_error('kode')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('kode') ?>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Alamat</label>
-                                <input name="alamat" type="text" class="form-control <?= validation_show_error('alamat') ? 'is-invalid' : '' ?>" placeholder="Jalan Panjang 3 Nomor 2" value="<?= old('alamat', $db['alamat']) ?>">
+                                <input name="alamat" type="text" class="form-control <?= validation_show_error('alamat') ? 'is-invalid' : '' ?>" placeholder="Alamat Cabang" value="<?= old('alamat', $db['alamat']) ?>">
                                 <?php if (validation_show_error('alamat')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('alamat') ?>

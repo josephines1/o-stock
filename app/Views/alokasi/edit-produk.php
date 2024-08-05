@@ -13,7 +13,7 @@
                             <input type="hidden" name="id_alokasiPerProduk" value="<?= $db['id'] ?>">
                             <div class="mb-3 w-100">
                                 <label class="form-label">Nama Produk</label>
-                                <input type="text" disabled class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="e.g. Cabang Lorem Ipsum" value="<?= old('nama', htmlspecialchars($db['nama_produk'])) ?>">
+                                <input type="text" disabled class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" value="<?= old('nama', htmlspecialchars($db['nama_produk'])) ?>">
                                 <?php if (validation_show_error('nama')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('nama') ?>
@@ -22,7 +22,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Jumlah</label>
-                                <input type="text" name="jumlah" class="form-control <?= validation_show_error('jumlah') ? 'is-invalid' : '' ?>" placeholder="e.g. Cabang Lorem Ipsum" value="<?= old('jumlah', $db['jumlah']) ?>">
+                                <input type="text" name="jumlah" class="form-control <?= validation_show_error('jumlah') ? 'is-invalid' : '' ?>" placeholder="e.g. Jumlah Produk Alokasi" value="<?= old('jumlah', $db['jumlah']) ?>">
                                 <?php if (validation_show_error('jumlah')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('jumlah') ?>

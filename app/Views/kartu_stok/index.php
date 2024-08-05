@@ -12,8 +12,8 @@
 
             <!-- Page title actions -->
             <div class="col-md-auto ms-auto mt-4 mt-md-0 d-print-none">
-                <div class="d-flex flex-wrap flex-md-nowrap flex-column-reverse flex-md-row">
-                    <div class="dropdown ms-auto ms-md-3 mt-3 mt-md-0">
+                <div class="d-flex flex-wrap flex-md-nowrap">
+                    <div class="dropdown ms-md-3">
                         <a href="#filter" class="btn btn-secondary-outline text-secondary dropdown-toggle" data-bs-toggle="dropdown">Filter Data</a>
                         <div class="dropdown-menu dropdown-menu-arrow" style="max-width: 350px;min-width: 200px;">
                             <h3 class="dropdown-header">Filters</h3>
@@ -47,7 +47,7 @@
                         </form>
                     </div>
                     <?php if (in_groups('pusat')) : ?>
-                        <a href="<?= base_url("/kartu-stok/pilih-cabang") ?>" class="btn btn-primary ms-2 ms-md-3 mt-3 mt-md-0">
+                        <a href="<?= base_url("/kartu-stok/pilih-cabang") ?>" class="btn btn-primary ms-auto ms-md-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M12 5l0 14"></path>

@@ -143,7 +143,7 @@ Anda perlu melakukan sedikit konfigurasi di bawah ini sebelum mulai menjalankan 
         'login'           => 'App\Views\auth\login',
         'register'        => 'Myth\Auth\Views\register',
         'forgot'          => 'Myth\Auth\Views\forgot',
-        'reset'           => 'App\Views\auth\reset',
+        'reset'           => 'Myth\Auth\Views\reset',
         'emailForgot'     => 'Myth\Auth\Views\emails\forgot',
         'emailActivation' => 'Myth\Auth\Views\emails\activation',
       ];

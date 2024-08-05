@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <div class="mb-3 w-100">
                                 <label class="form-label">Nama Supplier</label>
-                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="e.g. Motobatt" value="<?= old('nama', htmlspecialchars($db['nama'])) ?>">
+                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="Nama Supplier" value="<?= old('nama', htmlspecialchars($db['nama'])) ?>">
                                 <?php if (validation_show_error('nama')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('nama') ?>

@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <div class="mb-3 w-100">
                                 <label class="form-label">Nama</label>
-                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="e.g. Putri Cantika" value="<?= old('nama', htmlspecialchars($db['nama'])) ?>">
+                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="Nama Salesman" value="<?= old('nama', htmlspecialchars($db['nama'])) ?>">
                                 <?php if (validation_show_error('nama')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('nama') ?>
@@ -22,7 +22,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Nomor Handphone</label>
-                                <input name="no_handphone" type="text" class="form-control <?= validation_show_error('no_handphone') ? 'is-invalid' : '' ?>" placeholder="e.g. 087890901010" value="<?= old('no_handphone', $db['no_telp']) ?>">
+                                <input name="no_handphone" type="text" class="form-control <?= validation_show_error('no_handphone') ? 'is-invalid' : '' ?>" placeholder="No. HP Salesman" value="<?= old('no_handphone', $db['no_telp']) ?>">
                                 <?php if (validation_show_error('no_handphone')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('no_handphone') ?>

@@ -6,7 +6,7 @@
                 <tr class="text-center">
                     <th>No</th>
                     <th style="min-width: 140px;">Username</th>
-                    <th style="min-width: 140px;">Fullname</th>
+                    <th style="min-width: 140px;">Nama Lengkap</th>
                     <th style="min-width: 160px;">Email</th>
                     <th style="min-width: 140px;">Role</th>
                     <th style="min-width: 140px;">Kantor</th>

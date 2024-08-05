@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <div class="mb-3 w-100">
                                 <label class="form-label">Nama Konsumen</label>
-                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="e.g. Putri Cantika" value="<?= old('nama') ?>">
+                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="Nama Konsumen" value="<?= old('nama') ?>" autofocus>
                                 <?php if (validation_show_error('nama')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('nama') ?>
@@ -21,7 +21,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Alamat</label>
-                                <input name="alamat" type="text" class="form-control <?= validation_show_error('alamat') ? 'is-invalid' : '' ?>" placeholder="e.g. Jalan Panjang 2 Nomor 3" value="<?= old('alamat') ?>">
+                                <input name="alamat" type="text" class="form-control <?= validation_show_error('alamat') ? 'is-invalid' : '' ?>" placeholder="Alamat Konsumen" value="<?= old('alamat') ?>">
                                 <?php if (validation_show_error('alamat')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('alamat') ?>
@@ -30,7 +30,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Kota</label>
-                                <input name="kota" type="text" class="form-control <?= validation_show_error('kota') ? 'is-invalid' : '' ?>" placeholder="e.g. Jakarta Timur" value="<?= old('kota') ?>">
+                                <input name="kota" type="text" class="form-control <?= validation_show_error('kota') ? 'is-invalid' : '' ?>" placeholder="Kota Konsumen" value="<?= old('kota') ?>">
                                 <?php if (validation_show_error('kota')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('kota') ?>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Nomor Handphone</label>
-                                <input name="no_handphone" type="text" class="form-control <?= validation_show_error('no_handphone') ? 'is-invalid' : '' ?>" placeholder="e.g. 087890901010" value="<?= old('no_handphone') ?>">
+                                <input name="no_handphone" type="text" class="form-control <?= validation_show_error('no_handphone') ? 'is-invalid' : '' ?>" placeholder="No. HP Konsumen" value="<?= old('no_handphone') ?>">
                                 <?php if (validation_show_error('no_handphone')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('no_handphone') ?>

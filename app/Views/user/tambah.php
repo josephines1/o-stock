@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <div class="mb-3 w-100">
                                 <label class="form-label">Username</label>
-                                <input name="username" type="text" class="form-control <?= validation_show_error('username') ? 'is-invalid' : '' ?>" placeholder="e.g. putricantika" value="<?= old('username') ?>">
+                                <input name="username" type="text" class="form-control <?= validation_show_error('username') ? 'is-invalid' : '' ?>" placeholder="username" value="<?= old('username') ?>" autofocus>
                                 <?php if (validation_show_error('username')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('username') ?>
@@ -30,8 +30,8 @@
                                 <?php endif; ?>
                             </div>
                             <div class="mb-3 w-100">
-                                <label class="form-label">Fullname</label>
-                                <input name="fullname" type="text" class="form-control <?= validation_show_error('fullname') ? 'is-invalid' : '' ?>" placeholder="e.g. Putri Cantika" value="<?= old('fullname') ?>">
+                                <label class="form-label">Nama Lengkap</label>
+                                <input name="fullname" type="text" class="form-control <?= validation_show_error('fullname') ? 'is-invalid' : '' ?>" placeholder="Nama Lengkap" value="<?= old('fullname') ?>">
                                 <?php if (validation_show_error('fullname')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('fullname') ?>
@@ -40,7 +40,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Email</label>
-                                <input name="email" type="text" class="form-control <?= validation_show_error('email') ? 'is-invalid' : '' ?>" placeholder="e.g. putricantika@gmail.com" value="<?= old('email') ?>">
+                                <input name="email" type="text" class="form-control <?= validation_show_error('email') ? 'is-invalid' : '' ?>" placeholder="Email" value="<?= old('email') ?>">
                                 <?php if (validation_show_error('email')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('email') ?>

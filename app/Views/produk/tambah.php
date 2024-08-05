@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <div class="mb-3 w-100">
                                 <label class="form-label">Kode Produk</label>
-                                <input name="kode_produk" type="text" class="form-control <?= validation_show_error('kode_produk') ? 'is-invalid' : '' ?>" placeholder="e.g. MTB0101" value="<?= old('kode_produk') ?>">
+                                <input name="kode_produk" type="text" class="form-control <?= validation_show_error('kode_produk') ? 'is-invalid' : '' ?>" placeholder="Kode Produk" value="<?= old('kode_produk') ?>" autofocus>
                                 <?php if (validation_show_error('kode_produk')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('kode_produk') ?>
@@ -21,7 +21,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Nama Produk</label>
-                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="e.g. Oli Motor" value="<?= old('nama') ?>">
+                                <input name="nama" type="text" class="form-control <?= validation_show_error('nama') ? 'is-invalid' : '' ?>" placeholder="Nama Produk" value="<?= old('nama') ?>">
                                 <?php if (validation_show_error('nama')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('nama') ?>
@@ -54,7 +54,7 @@
                         <div class="card-body">
                             <div class="mb-3 w-100">
                                 <label class="form-label">Harga Jual</label>
-                                <input name="harga_jual" type="text" class="form-control <?= validation_show_error('harga_jual') ? 'is-invalid' : '' ?>" placeholder="e.g. 150.000" value="<?= old('harga_jual') ?>">
+                                <input name="harga_jual" type="text" class="form-control <?= validation_show_error('harga_jual') ? 'is-invalid' : '' ?>" placeholder="Harga Jual" value="<?= old('harga_jual') ?>">
                                 <?php if (validation_show_error('harga_jual')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('harga_jual') ?>

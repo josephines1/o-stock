@@ -37,7 +37,7 @@
                             </div>
                             <div class="mb-3 w-100">
                                 <label class="form-label">Stok Awal</label>
-                                <input name="stok_awal" type="text" class="form-control <?= validation_show_error('stok_awal') ? 'is-invalid' : '' ?>" placeholder="e.g. 10" value="<?= old('stok_awal') ?>">
+                                <input name="stok_awal" type="text" class="form-control <?= validation_show_error('stok_awal') ? 'is-invalid' : '' ?>" placeholder="Jumlah Stok Awal" value="<?= old('stok_awal') ?>">
                                 <?php if (validation_show_error('stok_awal')) : ?>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('stok_awal') ?>
